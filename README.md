@@ -71,3 +71,6 @@ sos run ~/gatk_joint_calling/gatk_joint_calling.ipynb annovar \
 --humandb /mnt/mfs/statgen/isabelle/REF/humandb \
 --x-ref /mnt/mfs/statgen/isabelle/REF/humandb/mart_export_2019_LOFtools3.txt
 
+### Update memory
+
+sos run ~/gatk_joint_calling/gatk_joint_calling.ipynb submit_csg --cmd_file analysis_commands_CDgenomic_batch1_051622.txt --mem 64
