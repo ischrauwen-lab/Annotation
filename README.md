@@ -4,9 +4,9 @@ Note: if the following error appears: \
 `Error occurred during initialization of VM` \
 `Could not reserve enough space for 50331648KB object heap` 
 
-reduce memory by adding --mem=10 OR --mem=8 to the analysis_commands.txt
-change time: --time 72:00:00 
-start from step already finished when cut-off early (make sure to use the same script as previously) add: -s build
+reduce memory by adding --mem=10 OR --mem=8 to the analysis_commands.txt or initial command \
+change time: --time 72:00:00 to initial command \
+start from step already finished when cut-off early (make sure to use the same script as previously) add: "-s build" to analysis_commands txt file
 
 ## examples 
 
