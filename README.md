@@ -76,3 +76,30 @@ sos run ~/gatk_joint_calling/gatk_joint_calling.ipynb annovar \
 ### Update memory
 
 sos run ~/gatk_joint_calling/gatk_joint_calling.ipynb submit_csg --cmd_file analysis_commands_CDgenomic_batch1_051622.txt --mem 64
+
+###example analysis_commands.txt with new pipeline
+module load Singularity
+module load VCFTOOLS/0.1.17
+module load PLINK/1.9.10
+module load TABIX/1.6
+sos run ~/bioworkflows/variant-calling/gatk_joint_calling.ipynb call \
+    --container-option /mnt/vast/hpc/csg/containers/gatk4-annovar.sif \
+    --vcf-prefix /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2_Joint_calling/Wave4_AfrBatch3_2 \
+    --samples /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2/Samples_Wave4_AFRbatch3_2.txt \
+    --samples-dir /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2/ \
+    --ref-genome /mnt/vast/hpc/csg/isabelle/REF/refs/resources_broad_hg38_v0_Homo_sapiens_assembly38.fasta \
+    --cwd /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2_Joint_calling/ \
+    --vcf-filter basic
+
+sos run ~/bioworkflows/variant-calling/gatk_joint_calling.ipynb basic_filter \
+    --container-option /mnt/vast/hpc/csg/containers/gatk4-annovar.sif \
+    --vcf-prefix /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2_Joint_calling/Wave4_AfrBatch3_2 \
+    --ref-genome /mnt/vast/hpc/csg/isabelle/REF/refs/resources_broad_hg38_v0_Homo_sapiens_assembly38.fasta \
+    --cwd /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2_Joint_calling/ \
+    --vcf-filter basic
+
+sos run ~/bioworkflows/variant-calling/gatk_joint_calling.ipynb vcf_qc \
+    --container-option /mnt/vast/hpc/csg/containers/gatk4-annovar.sif \
+    --vcf-prefix /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2_Joint_calling/Wave4_AfrBatch3_2 \
+    --cwd /mnt/vast/hpc/csg/Thashi/Wave4_AFRbatch3_2/AFRBatch3_2_Joint_calling/ \
+    --vcf-filter basic
