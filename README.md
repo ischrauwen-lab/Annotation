@@ -1,4 +1,4 @@
-# Annotation
+# Variant calling and QC
 
 Note: if the following error appears: \
 `Error occurred during initialization of VM` \
