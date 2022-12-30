@@ -77,7 +77,8 @@ sos run ~/gatk_joint_calling/gatk_joint_calling.ipynb annovar \
 
 sos run ~/gatk_joint_calling/gatk_joint_calling.ipynb submit_csg --cmd_file analysis_commands_CDgenomic_batch1_051622.txt --mem 64
 
-###example analysis_commands.txt with new pipeline
+### Example analysis_commands.txt with new pipeline and basic filter
+
 module load Singularity
 module load VCFTOOLS/0.1.17
 module load PLINK/1.9.10
