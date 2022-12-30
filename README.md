@@ -8,6 +8,10 @@ reduce memory by adding --mem=10 OR --mem=8 to the analysis_commands.txt or init
 change time: --time 72:00:00 to initial command \
 start from step already finished when cut-off early (make sure to use the same script as previously) add: "-s build" to analysis_commands txt file
 
+Check reference file to be used for variant calling. Are the gVCF contigs named chr1 or 1? choose the appropriate reference: \
+resources_broad_hg38_v0_Homo_sapiens_assembly38.fasta -> for chr1, chr2 etc \
+Homo_sapiens.GRCh38.dna_sm.primary_assembly -> for 1,2,3 etc (CD genomics gVCFs)
+
 ## examples 
 
 ### Run annotation only
