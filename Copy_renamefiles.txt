@@ -1,0 +1,17 @@
+#!/bin/bash
+#$ -l h_rt=1:00:00
+#$ -l h_vmem=1G
+#$ -N copy
+#$ -o /home/tb2890/Thashi/copy-$JOB_ID.out
+#$ -e /home/tb2890/Thashi/copy-$JOB_ID.err
+#$ -j y
+#$ -q csg.q
+#$ -S /bin/bash
+export PATH=$HOME/miniconda3/bin:$PATH
+
+#Copy_gvcf
+
+cd /mnt/vast/hpc/csg/isabelle/CD_genomics/CD_BATCH6_AFR/gvcf
+for file in */SNP_INDEL.gvcf; do
+    cp "$file" "/home/tb2890/Thashi/CD_genomics/CD_genomics_Batch6_AFR/${file/\//_}"
+done

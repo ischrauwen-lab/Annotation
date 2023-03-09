@@ -1,0 +1,23 @@
+sos run ~/bioworkflows/variant-calling/gatk_joint_calling.ipynb call \
+    --container-option /mnt/vast/hpc/csg/containers/gatk4-annovar.sif \
+    --vcf-prefix /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_Joint_calling/CDgenomics_Batch6_basic \
+    --samples /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_MNPout/Samples_CDgenomics_Batch6AFR.txt \
+    --samples-dir /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_MNPout/ \
+    --ref-genome /mnt/vast/hpc/csg/Thashi/REF/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa \
+    --cwd /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_Joint_calling/ \
+    --vcf-filter basic -s build
+
+sos run ~/bioworkflows/variant-calling/gatk_joint_calling.ipynb basic_filter \
+    --container-option /mnt/vast/hpc/csg/containers/gatk4-annovar.sif \
+    --vcf-prefix /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_Joint_calling/CDgenomics_Batch6_basic \
+    --ref-genome /mnt/vast/hpc/csg/Thashi/REF/Homo_sapiens.GRCh38.dna_sm.primary_assembly.fa \
+    --cwd /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_Joint_calling/ \
+    --vcf-filter basic -s build
+
+module load TABIX/1.6
+module load HTSLIB/1.9
+sos run ~/bioworkflows/variant-calling/gatk_joint_calling.ipynb vcf_qc \
+    --container-option /mnt/vast/hpc/csg/containers/gatk4-annovar.sif \
+    --vcf-prefix /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_Joint_calling/CDgenomics_Batch6_basic \
+    --cwd /mnt/vast/hpc/csg/Thashi/CD_genomics/CD_genomics_Batch6_AFR/Batch6_Joint_calling/ \
+    --vcf-filter basic -s build
